@@ -6,7 +6,9 @@
 const myObj = {"message": "Hello, earthling! I bring peace."};
 
 // Log the message 
-const val = myObj.message;
+
+myObj["message"] // square bracket notation
+const val = myObj.message; // dot notation - preferred way
 console.log(val);
 
 // --------------------------------------

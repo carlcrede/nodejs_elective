@@ -12,8 +12,14 @@ console.log(letters[1]);
 
 const friends = [];
 
-// What a lonely array. Add at least 3 friend objects to it.  
-friends.push("Hello", 69, "Nice objects", {"type": "object"});
+// What a lonely array. Add at least 3 friend objects to it.
+
+const john = {
+    name: "John",
+    age: 22
+};
+
+friends.push(john);
 console.log(friends);
 
 // --------------------------------------
@@ -33,6 +39,7 @@ const diet = ["tomato", "cucumber", "rocket"];
 
 // You are a programmer. In one line (one statement) insert hamburger, soda and pizza between the elements cucumber and rocket
 
+// returns deleted elements (only if second argument > 0)
 diet.splice(2, 0, "hamburger", "soda", "pizza");
 
 console.log(diet);
@@ -65,7 +72,7 @@ const lettersExpanded = ["a","b","c", "d", "e", "f", "g", "h"];
 
 // log every second char in the array starting from b
 
-for (let index = 1; index < lettersExpanded.length; index+=2) {
+for (let index = 1; index < lettersExpanded.length; index += 2) {
     console.log(lettersExpanded[index]);
 }
 
