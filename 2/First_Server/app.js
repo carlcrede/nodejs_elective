@@ -4,14 +4,6 @@ const app = express();
 // consider what datatype to store your data in
 // you are allowed to hardcode the id
 
-app.get("/", (req, res) => {
-    res.send({ message: "First call to /"});
-});
-
-app.get("/anotherpath/id", (req, res) => {
-    res.send({ data: "some other things"});
-});
-
 const songs = [
     {id: 1, title: 'A song'}, 
     {id: 2, title: 'Two Princes'}, 
