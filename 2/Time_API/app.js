@@ -44,4 +44,14 @@ app.get("/month", (req, res) => {
     );
 });
 
+app.get("/about", (req, res) => {
+    res.send({
+        version: "1.0.0"
+    });
+});
+
+app.get("/page", (req, res) => {
+    res.send("<h1>Welcome</h1>");
+});
+
 app.listen(8080);
