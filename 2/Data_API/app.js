@@ -4,6 +4,14 @@ const app = express();
 // use the bodyParser that comes with express (to be able to parse http body)
 app.use(express.json());
 
+// if no path is given (./), in Node it looks in node_moduels
+const wine = require("./wine.json");
+
+// serve the wine
+app.get("/wine", (req, res) => {
+    res.send({"wine is served": wine});
+});
+
 // Send data with GET - Query string
 app.get("/search", (req, res) => {
     console.log(req.query);
@@ -22,4 +30,11 @@ app.post("/goodstuff", (req, res) => {
     console.log(req.body);
 });
 
-app.listen(8080);
+
+
+app.listen(8080, (error) => {
+    if (error) {
+        console.log(error);
+    }
+    console.log("Server is running on port", 8080);
+});
