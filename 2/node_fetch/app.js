@@ -17,7 +17,7 @@ app.get('/proxy', async (req, res) => {
     fetch('https://www.google.com/')
         .then(response => response.text())
         .then(html => res.send(html))
-        .catch()
+        .catch(err => console.log('Something went wrong', err))
 }); */
 
 app.listen(port, (error) => {
