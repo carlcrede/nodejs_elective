@@ -3,7 +3,7 @@
 
 const failures = ["misclick", "falling down", "skateboard accident", "tiktok fail"];
 
-failures.map((index, failure) => {
+failures.map((failure, index) => {
     console.log(index, failure);
 });
 
@@ -18,6 +18,8 @@ const newFailures = failures.map((failure) => {
 /* One-liner - but we cannot construct new object
     const newFailures = failures.map((failure) => failure); 
 */
+
+failures.find()
 
 console.log(newFailures);
 
