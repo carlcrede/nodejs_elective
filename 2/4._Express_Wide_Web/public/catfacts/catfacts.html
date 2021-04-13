@@ -8,7 +8,9 @@
 </head>
 <body>
     <div>
-        <h4 id="fact"></h4>
+        <h1>Random Cat Facts</h1>
+        <h4 id="fact-h4"></h4>
+        <div id="fact"></div>
         <button id="fact_btn">Give me a random cat fact!</button>
     </div>
 
@@ -16,14 +18,55 @@
 
     <script>
 
-        const url = "https://cat-fact.herokuapp.com/facts/random";
+        const url_single = "https://cat-fact.herokuapp.com/facts/random";
+        const url = "https://cat-fact.herokuapp.com/facts/random?amount=50";
 
         $("#fact_btn").on('click', () => {
-            $.get(url, (data) => {
+            $.get(url_single, (data) => {
                 console.log(data);
-                return $("#fact").text(data.text);
+                return $("#fact-h4").text(data.text);
             });
         });
+
+        /* $.get(url, (response) => {
+            const factDiv = document.getElementById("fact");
+
+            response.map(fact => {
+                if (fact.status.verified) {
+                    const nestedListItem = document.createElement("li");
+                    nestedListItem.innerText = fact.text
+                    factDiv.append(nestedListItem);
+                }
+            });
+        }); */
+
+        /* fetch(url_single)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            const factDiv = document.getElementById("fact");
+            const factItem = document.createElement("p");
+            factItem.innerText = data.text
+            factDiv.append(factItem);
+        }); */
+
+        (async () => {
+            try {
+                const res = await fetch(url_single);
+                const data = await res.json();
+                const factDiv = document.getElementById("fact");
+                const factItem = document.createElement("p");
+                factItem.innerText = data.text
+                factDiv.append(factItem);
+            } catch (error) {
+                console.error(error);
+            }
+        })()
+        
+        fetch("/pub")
+        .then(response => response.json())
+        .then(data => console.log(data))
+
     </script>
 
 </body>
