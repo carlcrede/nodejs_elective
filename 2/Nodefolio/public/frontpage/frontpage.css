@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(to right bottom, #85ABCE 50%, #FB5A5A calc(50% + 1px));
+  }
+
+  .main {
+      min-height: calc(100vh - 120px);
+      margin: 5vw;
+  }
+
+  #footer-copyright {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2vh;
+  }
+
+  .links {
+    display: flex;
+    margin: 0 -1rem;
+    padding-right: 15rem;
+  }
+  
+  .links a {
+    display: inline-block;
+    margin: 0 1em;
+    background-color: #85ABCE;
+    box-shadow: 5px 5px 10px;
+    padding: .3rem;
+  }
+  
+  .logo {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  nav a {
+    color: #0f0f0f;
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
