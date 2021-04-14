@@ -1,8 +1,11 @@
-body {
+
+  
+  body {
     margin: 0;
     font-family: 'Lato', sans-serif;
+    background: #302525;
   }
-  
+
   * {
     box-sizing: border-box;
   }
@@ -22,23 +25,29 @@ body {
       margin: 5vw;
   }
 
+  footer {
+    background: #85ABCE 50%;
+    padding: 1rem 1rem;
+    position: sticky;
+    bottom: 0;
+  }
+
   #footer-copyright {
       display: flex;
       justify-content: center;
-      margin-bottom: 2vh;
   }
 
   .links {
     display: flex;
     margin: 0 -1rem;
-    padding-right: 15rem;
+    
   }
   
   .links a {
     display: inline-block;
     margin: 0 1em;
     background-color: #85ABCE;
-    box-shadow: 5px 5px 10px;
+    box-shadow: 2.5px 8px 15px -5.5px rgba(0, 0, 0, 0.4);
     padding: .3rem;
   }
   
@@ -54,5 +63,17 @@ body {
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
+  }
+
+  section h1 {
+    color: aliceblue;
+  }
+
+  section p {
+    color: aliceblue;
+  }
+
+  .center {
+    text-align: center;
   }
 
