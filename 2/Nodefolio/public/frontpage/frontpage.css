@@ -2,7 +2,7 @@
   
   body {
     margin: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Monaco', monospace;
     background: #302525;
   }
 
@@ -28,7 +28,7 @@
   footer {
     background: #85ABCE 50%;
     padding: 1rem 1rem;
-    position: sticky;
+    /* position: sticky; */
     bottom: 0;
   }
 
@@ -60,16 +60,12 @@
   nav a {
     color: #0f0f0f;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
   }
 
-  section h1 {
-    color: aliceblue;
-  }
-
-  section p {
+  h1, p, label {
     color: aliceblue;
   }
 

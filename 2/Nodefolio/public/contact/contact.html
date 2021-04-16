@@ -1,1 +1,17 @@
 <h1>Contact page</h1>
+
+<form action="/api/contact" method="post">
+    <label>Name</label>
+    <input name="name" placeholder="Your name" type="text">
+
+    <label>Email</label>
+    <input name="email" placeholder="Your email address" type="email">
+
+    <label>Subject</label>
+    <input name="subject" placeholder="Enter a subject" type="text">
+
+    <label>Message</label>
+    <textarea name="message" placeholder="Enter your message here" type="text" rows="10" cols="20"></textarea>
+
+    <button type="submit">Send message</button>
+</form>

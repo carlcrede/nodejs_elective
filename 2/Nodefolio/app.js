@@ -5,16 +5,30 @@ const port = process.env.PORT || 8080;
 
 app.use(express.static('public'));
 app.use(express.json());
+// parse form data
+app.use(express.urlencoded({ extended: true }));
+
+// import routing
+const 
+    projectsRoute = require('./routes/projects'),
+    contactRoute = require('./routes/contact');
+
+
+app.use(projectsRoute.router);
+app.use(contactRoute.router);
 
 // server-side rendering
 // read file as text
 // send text content to the client
-const header = fs.readFileSync(__dirname + '/public/header/header.html', 'utf-8'),
-    frontpage = fs.readFileSync(__dirname + '/public/frontpage/frontpage.html', 'utf-8'),
+const 
+    header = fs.readFileSync(__dirname + '/public/header/header.html', 'utf-8'),
     footer = fs.readFileSync(__dirname + '/public/footer/footer.html', 'utf-8'),
+
+    frontpage = fs.readFileSync(__dirname + '/public/frontpage/frontpage.html', 'utf-8'),
     projects = fs.readFileSync(__dirname + '/public/projects/projects.html', 'utf-8'),
     skills = fs.readFileSync(__dirname + '/public/skills/skills.html', 'utf-8'),
     contact = fs.readFileSync(__dirname + '/public/contact/contact.html', 'utf-8');
+
 
 app.get('/', (req, res) => {
     res.send(header + frontpage + footer);

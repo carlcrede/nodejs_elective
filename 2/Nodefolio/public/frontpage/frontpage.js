@@ -12,5 +12,5 @@ let i = 0;
 function typeintro() {
     $('#intro').append(intro_text.charAt(i));
     i++;
-    setTimeout(typeintro, intro_speed+i);
+    setTimeout(typeintro, intro_speed + i);
 }
