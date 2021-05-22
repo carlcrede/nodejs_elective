@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimpleChat</title>
+</head>
+<body>
+    <h1>Welcome to the chat</h1>
+    <p id="id">Client/Socket ID: </p>
+    <p>Nickname: <span id="displayNickame"></span></p>
+    <div style="border: 1px solid black; height: 200px; width: 400px; overflow-y: scroll;" id="chat"> 
+    </div>
+    <br>
+    <div>
+        <input type="text" name="message" id="message" value="" required>
+        <button id="sendMessageBtn" onclick="sendMessage()">Send</button>
+        <input type="text" name="nickname" id="nicknameInput">
+        <button id="nicknameBtn" onclick="changeNickname()">Change nickname</button>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        let nickname = 'anon' + randomNumber();
+
+        document.getElementById('displayNickame').innerHTML = nickname;
+
+        socket.once('message', () => {
+            document.getElementById('id').innerHTML += socket.id;
+        });
+
+        socket.on('message', (data) => {
+            //console.log(data);
+        });
+
+        socket.on('newMessage', (data) => {
+            //console.log(data);
+            document.getElementById('chat').innerHTML += `<div>${data.nickname || data.id}: ${data.msg}</div>`;
+        });
+
+        function sendMessage() {
+            const msg = document.getElementById('message').value;
+            document.getElementById('chat').innerHTML += `<div>You: ${msg}</div>`;
+            document.getElementById('message').value = '';
+            socket.emit('messageSent', { msg, id: socket.id, nickname });
+        }
+
+        function changeNickname() {
+            nickname = document.getElementById('nicknameInput').value;
+            document.getElementById('displayNickame').innerHTML = nickname;
+        }
+
+        function randomNumber() {
+            return Math.floor(Math.random() * (100000 - 1000) + 1000);
+        }
+        
+    </script>
+</body>
+</html>
